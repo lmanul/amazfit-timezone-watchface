@@ -1,3 +1,22 @@
 #!/usr/bin/python3
 
 import os
+import sys
+import util
+
+digits = sys.argv[1]
+margin_v = 4
+
+imgs = []
+for d in digits:
+    imgs.append("digits/" + d + ".png")
+(w, h) = util.get_image_dimensions(imgs[0])
+
+rows = len(digits)
+cols = 1
+tile_v = h + margin_v
+cmd = ("montage -background none "
+       "-geometry " + str(w) + "x" + str(tile_v) + " "
+       "-tile " + str(cols) + "x" + str(rows) + " " + " ".join(imgs) + " out.png")
+print(cmd)
+os.system(cmd)
