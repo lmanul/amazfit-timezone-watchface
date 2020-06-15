@@ -4,26 +4,41 @@ import os
 import sys
 import util
 
-digits = sys.argv[1]
 margin_v = 5
+font_height_px = 19
 HIGHLIGHTED_ROW_INDEX = 3
 
-imgs = []
-i = 0
-for d in digits:
-    img = "digits/" + d + ".png"
-    if i == HIGHLIGHTED_ROW_INDEX:
-        img = img.replace(".png", "_red.png")
-    imgs.append(img)
-    i += 1
+TZ = [
+    ["America/Los_Angeles", "Sfo"],
+    ["America/New_York", "Nyc"],
+    ["Etc/UTC", "Utc"],
+    ["Europe/Paris", "Par"],
+    ["Asia/Shanghai", "Sha"],
+    ["Asia/Tokyo", "Tok"],
+]
 
-(w, h) = util.get_image_dimensions(imgs[0])
+def make_digits(digits, with_tz=False):
+    imgs = []
+    i = 0
+    for d in digits:
+        img = "digits/" + d + ".png"
+        if i == HIGHLIGHTED_ROW_INDEX:
+            img = img.replace(".png", "_red.png")
+        imgs.append(img)
+        i += 1
 
-rows = len(digits)
-cols = 1
-tile_v = h + margin_v
-cmd = ("montage -background none "
-       "-geometry " + str(w) + "x" + str(tile_v) + " "
-       "-tile " + str(cols) + "x" + str(rows) + " " + " ".join(imgs) + " out.png")
-#print(cmd)
-os.system(cmd)
+    (w, h) = util.get_image_dimensions(imgs[0])
+
+    rows = len(digits)
+    cols = 1
+    tile_v = h + margin_v
+    cmd = ("montage -background none "
+           "-geometry " + str(w) + "x" + str(tile_v) + " "
+           "-tile " + str(cols) + "x" + str(rows) + " " + " ".join(imgs) + " out.png")
+    #print(cmd)
+    os.system(cmd)
+
+if __name__ == "__main__":
+    digits = sys.argv[1]
+    tz = len(sys.argv) > 2
+    make_digits(digits, with_tz=tz)
