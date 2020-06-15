@@ -7,11 +7,14 @@ def copy_image_to_index(img, idx, move=False):
     cmd = "mv" if move else "cp"
     os.system(cmd + " " + img + " out/" + out + ".png")
 
-def digit_images(idx):
+def digit_images(idx, tz=False):
     lines = 6
     for i in range(10):
-        os.system("./mkdigitcolumn " + str(i) * lines)
+        os.system("./mkdigitcolumn " + str(i) * lines + " 1")
         copy_image_to_index("out.png", idx + i, move=True)
+
+def digit_images_with_tz(idx):
+    digit_images(idx, tz=True)
 
 def weather_images(idx):
     weather_imgs = sorted(["weather/" + f for f in os.listdir("weather/")])
@@ -31,5 +34,6 @@ if __name__ == "__main__":
     copy_image_to_index("background.png", 0)
 
     digit_images(1)
+    digit_images_with_tz(50)
     #weather_images(100)
     #battery_images(200)

@@ -1,12 +1,15 @@
 #!/usr/bin/python3
 
 import os
+import pytz
 import sys
 import util
 
 margin_v = 5
 font_height_px = 19
+FONT_SIZE = 19
 HIGHLIGHTED_ROW_INDEX = 3
+TZ_TEXT_IMG_WIDTH_PX = 45
 
 TZ = [
     ["America/Los_Angeles", "Sfo"],
@@ -17,7 +20,25 @@ TZ = [
     ["Asia/Tokyo", "Tok"],
 ]
 
+def make_text_image(text):
+    out = text + ".png"
+    if os.path.exists(out):
+        return
+    font_face = "AvantGarde-Book"
+    cmd = ("convert "
+           "-size " + str(TZ_TEXT_IMG_WIDTH_PX) + "x" + ""
+           "" + str(font_height_px) + " "
+           "xc:black -font " + font_face + " "
+           "-pointsize " + str(FONT_SIZE) + " "
+           " -stroke white -fill white "
+           "-annotate +1+15 '" + text + ""
+           "' " + out)
+    os.system(cmd)
+
 def make_digits(digits, with_tz=False):
+    if with_tz:
+        for tz in TZ:
+            make_text_image(tz[1])
     imgs = []
     i = 0
     for d in digits:
