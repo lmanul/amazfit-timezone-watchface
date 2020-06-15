@@ -6,10 +6,17 @@ import util
 
 digits = sys.argv[1]
 margin_v = 5
+HIGHLIGHTED_ROW_INDEX = 3
 
 imgs = []
+i = 0
 for d in digits:
-    imgs.append("digits/" + d + ".png")
+    img = "digits/" + d + ".png"
+    if i == HIGHLIGHTED_ROW_INDEX:
+        img = img.replace(".png", "_red.png")
+    imgs.append(img)
+    i += 1
+
 (w, h) = util.get_image_dimensions(imgs[0])
 
 rows = len(digits)
