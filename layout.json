@@ -9,28 +9,28 @@
   "Time": {
     "Hours": {
       "Tens": {
-        "X": 10,
-        "Y": 51,
+        "X": 80,
+        "Y": 10,
         "ImageIndex": 1,
         "ImagesCount": 10
       },
       "Ones": {
-        "X": 48,
-        "Y": 51,
+        "X": 94,
+        "Y": 10,
         "ImageIndex": 1,
         "ImagesCount": 10
       }
     },
     "Minutes": {
       "Tens": {
-        "X": 96,
-        "Y": 51,
+        "X": 108,
+        "Y": 10,
         "ImageIndex": 1,
         "ImagesCount": 10
       },
       "Ones": {
-        "X": 134,
-        "Y": 51,
+        "X": 122,
+        "Y": 10,
         "ImageIndex": 1,
         "ImagesCount": 10
       }

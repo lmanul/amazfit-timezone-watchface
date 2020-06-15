@@ -2,15 +2,16 @@
 
 import os
 
-def copy_image_to_index(img, idx):
+def copy_image_to_index(img, idx, move=False):
     out = str(idx).zfill(4)
-    os.system("cp " + img + " out/" + out + ".png")
+    cmd = "mv" if move else "cp"
+    os.system(cmd + " " + img + " out/" + out + ".png")
 
 def digit_images(idx):
-    lines = 5
+    lines = 6
     for i in range(10):
         os.system("./mkdigitcolumn " + str(i) * lines)
-        copy_image_to_index("out.png", idx + i)
+        copy_image_to_index("out.png", idx + i, move=True)
 
 def weather_images(idx):
     weather_imgs = sorted(["weather/" + f for f in os.listdir("weather/")])
