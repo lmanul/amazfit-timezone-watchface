@@ -9,9 +9,9 @@
   "Time": {
     "Hours": {
       "Tens": {
-        "X": 80,
+        "X": 33,
         "Y": 10,
-        "ImageIndex": 1,
+        "ImageIndex": 50,
         "ImagesCount": 10
       },
       "Ones": {

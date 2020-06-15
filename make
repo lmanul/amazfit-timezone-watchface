@@ -10,7 +10,8 @@ def copy_image_to_index(img, idx, move=False):
 def digit_images(idx, tz=False):
     lines = 6
     for i in range(10):
-        os.system("./mkdigitcolumn " + str(i) * lines + " 1")
+        second_arg = " 1" if tz else ""
+        os.system("./mkdigitcolumn " + str(i) * lines + second_arg)
         copy_image_to_index("out.png", idx + i, move=True)
 
 def digit_images_with_tz(idx):
@@ -28,6 +29,7 @@ def battery_images(idx):
 
 if __name__ == "__main__":
     os.system("rm -rf out")
+    os.system("rm -f *.png")
     os.mkdir("out")
 
     os.system("cp layout.json out/")
