@@ -5,7 +5,7 @@ import sys
 import util
 
 digits = sys.argv[1]
-margin_v = 4
+margin_v = 5
 
 imgs = []
 for d in digits:
