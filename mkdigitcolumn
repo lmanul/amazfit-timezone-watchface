@@ -18,5 +18,5 @@ tile_v = h + margin_v
 cmd = ("montage -background none "
        "-geometry " + str(w) + "x" + str(tile_v) + " "
        "-tile " + str(cols) + "x" + str(rows) + " " + " ".join(imgs) + " out.png")
-print(cmd)
+#print(cmd)
 os.system(cmd)

@@ -44,7 +44,7 @@
       "BottomRightY": 137,
       "Alignment": "TopRight",
       "Spacing": 2,
-      "ImageIndex": 11,
+      "ImageIndex": 1,
       "ImagesCount": 10
     },
     "Pulse": {
@@ -54,7 +54,7 @@
       "BottomRightY": 168,
       "Alignment": "TopLeft",
       "Spacing": 2,
-      "ImageIndex": 21,
+      "ImageIndex": 1,
       "ImagesCount": 10
     },
     "Distance": {
@@ -65,11 +65,11 @@
         "BottomRightY": 155,
         "Alignment": "TopRight",
         "Spacing": 2,
-        "ImageIndex": 21,
+        "ImageIndex": 1,
         "ImagesCount": 10
       },
-      "SuffixImageIndex": 31,
-      "DecimalPointImageIndex": 32
+      "SuffixImageIndex": 1,
+      "DecimalPointImageIndex": 1
     }
   },
   "Date": {
@@ -82,7 +82,7 @@
           "BottomRightY": 25,
           "Alignment": "TopRight",
           "Spacing": 3,
-          "ImageIndex": 11,
+          "ImageIndex": 1,
           "ImagesCount": 10
         },
         "Day": {
@@ -92,7 +92,7 @@
           "BottomRightY": 25,
           "Alignment": "TopRight",
           "Spacing": 3,
-          "ImageIndex": 11,
+          "ImageIndex": 1,
           "ImagesCount": 10
         }
       },
@@ -102,7 +102,7 @@
     "WeekDay": {
       "X": 1,
       "Y": 20,
-      "ImageIndex": 33,
+      "ImageIndex": 1,
       "ImagesCount": 7
     }
   },
@@ -111,7 +111,7 @@
       "CustomIcon": {
         "X": 104,
         "Y": 112,
-        "ImageIndex": 40,
+        "ImageIndex": 100,
         "ImagesCount": 26
       }
     },
