@@ -31,7 +31,7 @@ if __name__ == "__main__":
     os.mkdir("out")
 
     os.system("cp layout.json out/")
-    copy_image_to_index("background.png", 0)
+    copy_image_to_index("background/background.png", 0)
 
     digit_images(1)
     digit_images_with_tz(50)
