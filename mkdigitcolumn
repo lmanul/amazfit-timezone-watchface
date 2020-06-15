@@ -9,7 +9,7 @@ font_height_px = 19
 FONT_WIDTH_PX = 11
 FONT_SIZE = 19
 HIGHLIGHTED_ROW_INDEX = 2
-TZ_TEXT_IMG_WIDTH_PX = 45
+TZ_TEXT_IMG_WIDTH_PX = 48
 
 TZ = [
     ["America/Los_Angeles", "Sfo"],
