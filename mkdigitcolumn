@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import datetime
 import os
 import pytz
 import sys
@@ -19,6 +20,10 @@ TZ = [
     ["Asia/Shanghai", "Sha"],
     ["Asia/Tokyo", "Tok"],
 ]
+
+def get_hour_diff_for_tz(tz):
+    now = datetime.datetime.now(pytz.timezone(tz))
+    return int(now.utcoffset().total_seconds() / 60 / 60)
 
 def make_text_image(text):
     out = text + ".png"
@@ -44,7 +49,19 @@ def make_digits(digits, with_tz=False):
         d = digits[i]
         img = "digits/" + d + ".png"
         if with_tz:
+            tz_id = TZ[i][0]
             tz_name = TZ[i][1]
+            d_int = int(d)
+            offset = get_hour_diff_for_tz(tz_id)
+            new_d_int = d_int + offset
+            if new_d_int < 0:
+                new_d_int += 24
+            if new_d_int >= 24:
+                new_d_int -= 24
+            # We just want the second digit at this point
+            while new_d_int >= 10:
+                new_d_int -= 10
+            img = "digits/" + str(new_d_int) + ".png"
             out = d + "_" + tz_name + ".png"
             cmd = ("montage -background none "
                    "-geometry +0+0 "

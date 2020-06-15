@@ -39,3 +39,4 @@ if __name__ == "__main__":
     digit_images_with_tz(50)
     #weather_images(100)
     #battery_images(200)
+    os.system("rm -f *.png")
