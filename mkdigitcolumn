@@ -40,7 +40,9 @@ def make_text_image(text):
            "' " + out)
     os.system(cmd)
 
-def make_digits(digits, with_tz=False):
+def make_digits(digits, with_tz=False, adjusted=False):
+    # with_z means this is the "tens" of the hour
+    # adjusted means this is the "ones" of the hour
     if with_tz:
         for tz in TZ:
             make_text_image(tz[1])
@@ -48,7 +50,7 @@ def make_digits(digits, with_tz=False):
     for i in range(len(digits)):
         d = digits[i]
         img = "digits/" + d + ".png"
-        if with_tz:
+        if adjusted:
             tz_id = TZ[i][0]
             tz_name = TZ[i][1]
             d_int = int(d)
@@ -62,6 +64,8 @@ def make_digits(digits, with_tz=False):
             while new_d_int >= 10:
                 new_d_int -= 10
             img = "digits/" + str(new_d_int) + ".png"
+
+        if with_tz:
             out = d + "_" + tz_name + ".png"
             cmd = ("montage -background none "
                    "-geometry +0+0 "
@@ -82,5 +86,14 @@ def make_digits(digits, with_tz=False):
 
 if __name__ == "__main__":
     digits = sys.argv[1]
+    adjusted = False
     tz = len(sys.argv) > 2
-    make_digits(digits, with_tz=tz)
+    if tz:
+        key = int(sys.argv[2])
+        if key == 2:
+            tz = True
+            adjusted = True
+        elif key == 1:
+            tz = False
+            adjusted = True
+    make_digits(digits, with_tz=tz, adjusted=adjusted)
